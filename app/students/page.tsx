@@ -25,14 +25,18 @@ export default function StudentsPage() {
       </div>
 
       {/* SEARCH BAR */}
-      <div className="max-w-xl mx-auto mb-8">
-        <input
-          type="text"
-          placeholder="Search university student..."
-          className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+<div className="max-w-xl mx-auto mb-8">
+  <input
+    type="text"
+    placeholder="Search university student..."
+    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    onChange={(e) => setSearch(e.target.value)}
+  />
+</div>
+
+<p className="text-center text-gray-500 mb-6">
+  Showing {filteredStudents.length} student(s)
+</p>
 
       {/* GRID CARDS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">

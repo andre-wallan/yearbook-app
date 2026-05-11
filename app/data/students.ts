@@ -31,4 +31,22 @@ export const students = [
     image: "https://i.pravatar.cc/150?img=5",
     message: "Fresh start, big dreams!",
   },
+  {
+    id: 1,
+    name: "Andrew Ssemanda",
+    course: "Bachelor of Information Technology",
+    year: "Year 3",
+    image: "https://i.pravatar.cc/300?img=1",
+    message: "Dream big and never stop learning.",
+  },
+
+  {
+    id: 2,
+    name: "Sarah Namugenyi",
+    course: "Bachelor of Computer Science",
+    year: "Year 2",
+    image: "https://i.pravatar.cc/300?img=5",
+    message: "Success begins with consistency.",
+  },
+
 ];
