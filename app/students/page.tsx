@@ -6,45 +6,53 @@ import StudentCard from "../components/StudentCard";
 
 export default function StudentsPage() {
   const [search, setSearch] = useState("");
+  const [faculty, setFaculty] = useState("");
 
-  const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredStudents = students.filter((student) => {
+    return (
+      student.name.toLowerCase().includes(search.toLowerCase()) &&
+      (faculty === "" || student.faculty === faculty)
+    );
+  });
 
   return (
-    <main className="min-h-screen bg-gray-100 p-8">
-      {/* HEADER */}
-      <div className="text-center mb-6">
-        <h1 className="text-3xl font-bold text-blue-700">
-          🎓 University Yearbook
+    <main className="min-h-screen p-8 bg-gray-100">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-blue-700">
+          🎓 University Students
         </h1>
 
         <p className="text-gray-600 mt-2">
-          Meet students from different faculties and departments
+          Browse students by faculty and course
         </p>
       </div>
 
-      {/* SEARCH BAR */}
-<div className="max-w-xl mx-auto mb-8">
-  <input
-    type="text"
-    placeholder="Search university student..."
-    className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-    onChange={(e) => setSearch(e.target.value)}
-  />
-</div>
+      <div className="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto mb-8">
+        <input
+          type="text"
+          placeholder="Search student..."
+          className="flex-1 p-3 rounded-lg border"
+          onChange={(e) => setSearch(e.target.value)}
+        />
 
-<p className="text-center text-gray-500 mb-6">
-  Showing {filteredStudents.length} student(s)
-</p>
+        <select
+          className="p-3 rounded-lg border"
+          onChange={(e) => setFaculty(e.target.value)}
+        >
+          <option value="">All Faculties</option>
+          <option value="Computing">Computing</option>
+          <option value="Business">Business</option>
+        </select>
+      </div>
 
-      {/* GRID CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
         {filteredStudents.map((student) => (
           <StudentCard
             key={student.id}
+            id={student.id}
             name={student.name}
             course={student.course}
+            faculty={student.faculty}
             year={student.year}
             image={student.image}
             message={student.message}
