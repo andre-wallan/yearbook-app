@@ -35,14 +35,21 @@ export default function StudentsPage() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select
-          className="p-3 rounded-lg border"
-          onChange={(e) => setFaculty(e.target.value)}
-        >
-          <option value="">All Faculties</option>
-          <option value="Computing">Computing</option>
-          <option value="Business">Business</option>
-        </select>
+        <label htmlFor="faculty" className="sr-only">
+  Select Faculty
+</label>
+
+<select
+  id="faculty"
+  title="Select Faculty"
+  className="p-3 rounded-lg border"
+  onChange={(e) => setFaculty(e.target.value)}
+>
+  <option value="">All Faculties</option>
+  <option value="Computing">Computing</option>
+  <option value="Business">Business</option>
+  <option value="Law">Law</option>
+</select>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-items-center">
